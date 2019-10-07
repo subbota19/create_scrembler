@@ -1,0 +1,13 @@
+#now,i'd like to write about my scrambler and first experience with tkinter
+
+#this code contain different tkinter element:button,label,enter and other,so in code 
+i attempt each way that be my code will understandable for all users,but if you want understand algoritm my task,than read some article about id
+
+***********************************Theoretical article*******************************************
+#the main task this code is are create app which allow input text(for example:"ABC") and  get output differnr text,which i get thanks formula,mod and index.that be organize it i use next
+ways:
+1)get index each letters in start word
+2)use formula i=index*key%mod(where index-is are letter position in word,key-is are user selected item(*important condithion:key and mod shold't have common divisors except 1) ,mod-is are count of the letters(always const,but you may have another mean,if you will be use another alphabet or many alphabets or rigesters for him,but i use only english letters(26) in alphabet)
+3)thanks fotmula i get change index for each letters in word,so at this stage we get new word
+4)next i create decoder,which finds start word use brute force method(just use cycle) 
+ 
