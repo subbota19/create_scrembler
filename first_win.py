@@ -1,5 +1,6 @@
 from tkinter import *
 from  tkinter import messagebox
+from math import  gcd
 
 class Main():
     def __init__(self,root,shifr):
@@ -45,8 +46,8 @@ class Button_for_1(Design_window):
             math = self.alfa_number[i] * int(key) % int(mod)
             new_name.append(self.alfa[math - 1])
         new_name = ''.join(new_name)
-        Dialog_window(key)
-        Create_add_window(name,new_name,'i=index*key%mod')
+        Dialog_window(key,mod)
+        Create_add_window(name,new_name,'i=index*key%mod','en')
 
 class Button_for_2(Main):
     def __init__(self, root):
@@ -68,17 +69,16 @@ class Button_for_2(Main):
                 if math_var == self.alfa_number[i]:
                     old_name.append(self.alfa[j - 1])
         old_name = ''.join(old_name)
-        Dialog_window(key)
-        Create_add_window(name,old_name, 'use cycle')
+        Dialog_window(key,mod)
+        Create_add_window(name,old_name, 'use cycle','de')
 
 
 class Dialog_window():
-    def __init__(self,key):
-        self.spis_check = [3, 5, 7, 9, 11, 15, 17, 19, 21, 23, 25]
-        if key in self.spis_check:
+    def __init__(self,key,mod):
+        if gcd(int(key),int(mod))==1:
             pass
         else:
-            aswer = messagebox.askyesno(title='Answer', message='Do you want to continue?')
+            answer = messagebox.askyesno(title='Answer', message='Do you want to continue?')
             if answer:
                 pass
             else:
@@ -86,14 +86,14 @@ class Dialog_window():
 
 
 class Create_add_window():
-    def __init__(self,start_name,after_name,formula):
+    def __init__(self,start_name,after_name,formula,word):
         new_window=Tk()
         new_window.geometry("400x250")
         new_window.title("Add_window")
 
         outpt_1 = Label(new_window, text=str(formula), font="Arial 20").place(x=150, y=10)
         outpt_2= Label(new_window, text="Start text:" + str(start_name), font="Arial 20").place(x=10, y=40)
-        outpt_3=Label(new_window, text="Text after encryption:"+str(after_name), font="Arial 20").place(x=10,y=100)
+        outpt_3=Label(new_window, text="Text after "+str(word)+ "cryption:"+str(after_name), font="Arial 20").place(x=10,y=100)
 
 if __name__=="__main__":
     root_1=Tk()
